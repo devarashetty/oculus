@@ -1,0 +1,20 @@
+<template name="doctorsList">
+    <hr>
+    <div class="">
+    	<div class="form-group col-md-3" id="daterangefilter">
+	      <input type="" class="form-control"  placeholder="Choose the date of doctor Availability ">
+	      <span></span>
+	    </div>
+	    <div class="form-group col-md-3">
+	      <input type="password" class="form-control" id="dayfilter" placeholder="Enter Day">
+	    </div>
+	    <div class="form-group col-md-3">
+	      <input type="password" class="form-control" id="typefilter" placeholder="Enter Required Doctors specialist" >
+	    </div>
+	    <div class="form-group col-md-3">
+	      <button type="button" class="btn">Search</button>
+	    </div>
+    </div>
+    <hr> 
+	{{> tabular table=TabularTables.doctorslist id="doctorsList" class="table table-striped table-bordered table-condensed"}}
+</template>

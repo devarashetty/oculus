@@ -1,0 +1,147 @@
+<template name="mainNav">
+    
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div id="mySidenav" class="sidenav">
+                  <a href="javascript:void(0)" class="closebtn" >&times;</a>
+                  <a href="/profile" class="cursor">Profile</a>
+                  <a href="/appointments" class="cursor">Appointments</a>
+                  <a href="/doctorsList" class="cursor">Doctors List</a>
+                </div>
+                
+                <div id="main">
+                  <span style="font-size:30px;cursor:pointer" class="cursor openbtn" >&#9776;</span>
+                </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <!-- <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">Start</span> Bootstrap
+                </a> -->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    {{#if isHome}}
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Download</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    {{/if}}
+                    {{#if currentUser}}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{getUserName _id}}
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>                          
+                                   <a class="logout_user"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+				    {{else}}
+			            <li>
+                           <a class="entry_signIn"><span class="glyphicon glyphicon-log-out"></span> Login</a>
+                        </li>	                      
+	                    <li>
+				            <a class="entry_signUp"><span class="glyphicon glyphicon-user signup"></span> Sign Up</a>
+				        </li>
+				    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <hr>
+    <div id="yield">
+        {{> yield }}
+    </div>
+</template>
+
+<template name='homepage' > 
+   <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Oculus</h1>
+                        <p class="intro-text">We empower physicians to do what they do best: care for patients. Seamlessly
+                            <br>Together, We Can Make Primary Care Great Again.
+
+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>About Oculus</h2>
+                <p>We offer technology and services to patients to lead and improve their health through a proven and efficient model of collaboration with clinicians and caregivers. <a href="">the preview page</a>. Solidify new healthy habits with our digital engagement, coaching and activity tracker(s) and measure your patients' progress over time.</p>
+                <p>We empower your patients' with meaningful information including test results and personalized recommendations to track and sustain disease management.</p>
+                <p>Knowledge is powerful medicine. We allow your patients to see their progress over time, giving you the insight you need to make changes to attain the best possible outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Connected Care Teams</h2>
+                    <p>Streamlined access to every care team member to enable transparent and proactive care delivery.</p>
+                    <a href="" class="btn btn-default btn-lg">Visit Home Page</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contact us</h2>
+                <p>Drop us a line. We'd love to chat.We're always happy to chat about what we do, why, and how. Get in touch with us and start the conversation. We'd love to hear from you.</p>
+                <p><a href="mailto:info@oculushealth.com">info@oculushealth.com</a>
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div id="map"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Your Website 2016</p>
+        </div>
+    </footer>
+</template>
+
+

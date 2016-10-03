@@ -1,0 +1,20 @@
+.container.createDoctorForm{
+	width:50%;
+}
+.container.editDoctorForm{
+	width:50%;
+}
+.container.createPatientForm{
+	width:50%;
+}
+.container.editPatientForm{
+	width:50%;
+}
+
+#doctorsList  th.sorting{
+	text-align: center;
+}
+
+#doctorsList{
+	text-align: center;	
+}

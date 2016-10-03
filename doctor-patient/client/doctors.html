@@ -1,0 +1,37 @@
+<template name="doctorsTemplate"> 
+	
+	<div class="container createDoctorForm"> 
+		<div class="panel panel-default">
+    		<div class="panel-heading text-center"><STRONG>Doctor Details Form</STRONG></div>		
+    		<div class="panel-body">
+    			{{#autoForm collection="userClass" id="create_doctor_form" type="insert"  schema=doctorsSchema }}
+					{{> afQuickFields }}
+					<div class="form-group">
+				        <button type="submit" class="btn btn-primary">
+				          Submit
+				        </button>
+				    </div>
+				{{/autoForm}}
+    		</div>
+ 		</div>
+    </div>
+    		
+</template>
+
+<template name="doctorsEditTemplate">
+    <div class="container editDoctorForm"> 
+		<div class="panel panel-default">
+    		<div class="panel-heading text-center"><STRONG>Doctor Details Form</STRONG></div>		
+    		<div class="panel-body">
+    			{{#autoForm collection="userClass" doc=doc id="edit_doctor_form" type="update"  schema=doctorsSchema }}
+					{{> afQuickFields }}
+					<div class="form-group">
+				        <button type="submit" class="btn btn-primary">
+				          Submit
+				        </button>
+				    </div>
+				{{/autoForm}}
+    		</div>
+ 		</div>
+    </div>	
+</template>

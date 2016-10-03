@@ -1,0 +1,31 @@
+.submit{
+	margin-left: 30%
+}
+.verification{
+	width: 400px;
+}
+
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+}
+
+.parent_verification_div{
+  position: relative;
+  top: 20%;
+}
+#submitVerificationCode{
+	width: 100px;
+    position: relative;
+    left: 37%;
+}
+
+i.glyphicon.glyphicon-edit.size.pull-right.gi-5x{
+	font-size: large
+}
+
+.nav > li > a:hover, .nav > li > a:focus{
+	background-color: black
+}

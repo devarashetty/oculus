@@ -1,0 +1,161 @@
+<template name="addAppointment">
+	<div id="appointmentInsertPage" class="page">
+      <div class="container with-nav-padding">
+        <div id="pad-wrapper" class="settings-wrapper">
+          <div class="row">
+
+            
+            <div class="">
+              <div class="panel outer-panel appointmentFormOuterPanel">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h3 id="userUpsertPageTitle" class="text-muted">Appointment Form</h3>
+                    </div>
+                  </div>
+                  <hr class="hidden-xs hidden-sm">
+                  <div class="row">
+                    <div class="col-md-12">
+                      {{#autoForm collection="Appointments" id="appointment" type="insert"}}
+                         <fieldset>
+                        {{>afQuickField name="doctorId"  options=appointmentOptions isReactiveOptions=true}}
+                        {{>afQuickField name="preferredGender" }}
+                        {{>afQuickField name="phone"}}
+                        {{>afQuickField name="patientName"}}
+                        {{>afQuickField name="patientId" value=_id}}
+                        {{>afQuickField name="appointmentdate"}}
+                         </fieldset>
+                        <button type="submit" class="btn btn-primary cursor">Submit</button>
+                      {{/autoForm}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>	
+</template>
+
+<template name="editAppointment">
+	<div id="appointmentEditPage" class="page">
+      <div class="container with-nav-padding">
+        <div id="pad-wrapper" class="settings-wrapper">
+          <div class="row">
+
+            <div class="col-md-3 col-md-offset-1 avatar-box">
+              	<div class="centered personal-image">
+              	</div>
+            </div>
+
+            <div class="col-md-7">
+              <div class="panel outer-panel appointmentFormOuterPanel">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h3 id="userUpsertPageTitle" class="text-muted">Appointment Form</h3>
+                    </div>
+                  </div>
+                  <hr class="hidden-xs hidden-sm">
+                  <div class="row">
+                    <div class="col-md-12">
+                     	{{> quickForm collection="Appointment" id="appointment" type="update"}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>	
+</template>
+
+<template name="showAppointments">
+  <div class="appointment_list container">
+    <!-- {{#if isDoctor}}
+      <h6>Your </h6>
+    {{else}}
+      <h6>Patient Appointments </h6>
+    {{/if}} -->
+    {{#if appointmentList}} 
+        <div class="panel-group">
+          {{#each appointmentList}}
+            <div class="panel panel-default">
+            {{#if isDoctor}}
+              <div class="panel-heading">Patient  Details</div>
+            {{else}}
+                <div class="panel-heading">Appointment Details</div>
+            {{/if}}  
+              <div class="panel-body">
+                <div class="row">
+                  
+                  <div class="col-md-3 col-md-offset-1 avatar-box">
+                    <div class="centered personal-image">
+                      <img class="user-img img-responsive" src="https://www.filepicker.io/api/file/tMtx9EMbSbC6r3lrdHCL/convert?w=300&amp;h=300&amp;fit=crop&amp;align=faces" alt="System Administrator">
+                    </div>
+                    <br>
+                  </div>
+
+                  <div class="col-md-7 personal-info">  
+                    <div id="" class="">
+                        <table class="table">
+                          {{#if isDoctor}}
+                            <tbody>
+                                <tr>
+                                  <td>Patient Name</td>
+                                  <td>{{this.patientName}}</td>
+                                </tr>
+                                <tr>
+                                  <td>emailId</td>
+                                  <td>{{getUserEmail this.patientId}}</td>
+                              </tr>
+                              <tr>
+                                <td>Phone Number</td>
+                                <td>{{getUserPhone this.patientId}}</td>
+                              </tr>
+                              <tr>
+                                <td>Appointment Time</td>
+                                <td>{{timeFormat this.appointmentdate}}</td>
+                              </tr>
+                            </tbody>
+                          {{else}}
+                            <tbody>
+                              <tr>
+                                <td>Doctor Name</td>
+                                <td>{{getUserName this.doctorId}}</td>
+                              </tr>
+                              <tr>
+                                <td>Doctor EmailId</td>
+                                <td>{{getUserEmail this.doctorId}}</td>
+                              </tr>
+                              <tr>
+                                <td>Doctor Phone Number</td>
+                                <td>{{getUserPhone this.doctorId}}</td>
+                              </tr>
+                              <tr>
+                                <td>Appointment Time</td>
+                                <td>{{timeFormat this.appointmentdate}}</td>
+                              </tr>
+                            </tbody>
+                          {{/if}}
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          {{/each}}
+        </div>  
+    {{else}}
+        {{#if isDoctor}}
+          <h4 class="text-info"> No patients for Today  </h4>
+        {{else}}
+          <h4 class="text-info"> You did not book for any appointments</h4>
+        {{/if}}
+    {{/if}}  
+  </div>
+</template>

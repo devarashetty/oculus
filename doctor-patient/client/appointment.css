@@ -1,0 +1,24 @@
+.appointmentFormOuterPanel{
+	border:1px solid !important;
+}
+.appointment_list{
+	width: 
+}
+
+@media (min-width: 768px){
+	.container{
+		width: 400px !important
+	}
+}
+
+@media (min-width: 1200px){
+.container {
+		width: 600px !important
+	}
+}
+
+@media (min-width: 992px){
+	.container {
+    	width: 970px;
+	}
+}
