@@ -73,7 +73,7 @@
 </template>
 
 <template name="showAppointments">
-  <div class="appointment_list container">
+  <div class="appointment_list container container">
     <!-- {{#if isDoctor}}
       <h6>Your </h6>
     {{else}}
@@ -86,7 +86,12 @@
             {{#if isDoctor}}
               <div class="panel-heading">Patient  Details</div>
             {{else}}
-                <div class="panel-heading">Appointment Details</div>
+                <div class="panel-heading">
+                
+                <span class="panel-heading">Appointment Details</span>
+                <span class="pull-right">status </span>
+                </div>
+                
             {{/if}}  
               <div class="panel-body">
                 <div class="row">
@@ -152,9 +157,16 @@
         </div>  
     {{else}}
         {{#if isDoctor}}
-          <h4 class="text-info"> No patients for Today  </h4>
+          <div class="text-center">
+            <h4 class="text-info ">  No patients for Today</h4>
+          </div>
         {{else}}
+        <div class="text-center">
           <h4 class="text-info"> You did not book for any appointments</h4>
+        </div>
+        <div class="text-center">
+        <button type="" class="btn btn-success make_appointment">Make appointment </button>
+         </div> 
         {{/if}}
     {{/if}}  
   </div>

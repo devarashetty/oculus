@@ -4,8 +4,9 @@ Router.route('/doctor/addDetails',{
 	template:'doctorsTemplate',
 	onBeforeAction:function(){
 		var doc = Meteor.users.findOne(Meteor.userId());
-		
-		if(doc.profile.role != "doctor")
+		var userClassdoc = userClass.findOne({userId:Meteor.userId()})
+		console.log("userClassdoc",userClassdoc);
+		if(doc.profile.role != "doctor" || userClassdoc)
 			Router.go('/')		
 		
 		this.next();

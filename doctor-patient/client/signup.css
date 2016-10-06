@@ -29,3 +29,8 @@ i.glyphicon.glyphicon-edit.size.pull-right.gi-5x{
 .nav > li > a:hover, .nav > li > a:focus{
 	background-color: black
 }
+
+.nav > li > a:hover, .nav > li > a:focus{
+	background-color: black !important;
+	color: yellowgreen !important	
+}

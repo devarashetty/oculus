@@ -8,7 +8,6 @@ Router.route('/signup',{
    	if(Meteor.userId()){
    	 	Router.go('/')
     }
-    this.next();
    }
 })
 

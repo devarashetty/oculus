@@ -58,6 +58,11 @@ Template.addAppointment.helpers({
 		return false
 	},
 })
+Template.showAppointments.events({
+	'click .make_appointment':function(){
+		Router.go('appointment');
+	}
+})
 Template.showAppointments.helpers({
 	isDoctor:function () {
 		var doc = Meteor.users.findOne(Meteor.userId());

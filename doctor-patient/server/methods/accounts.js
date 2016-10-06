@@ -1,9 +1,9 @@
 Meteor.methods({
-  sendVerificationLink() {
+  sendVerificationLink(id) {
     let userId = Meteor.userId();
     console.log("userId",userId);
-    if ( userId ) {
-      return Accounts.sendVerificationEmail( userId );
+    if ( id) {
+      return Accounts.sendVerificationEmail( id );
     }
   },
   add_user_to_collection:function(doc){
@@ -35,6 +35,6 @@ Meteor.methods({
 	  	    storeData.profile.role= doc.role;	  		
 	  	}
 	  	console.log("0000000000000000000",result, storeData);
-        Meteor.users.update({_id:result},{$set:{'profile':storeData['profile'],'gender':storeData['gender'],'primaryEmailId':primaryEmailId}});
+        Meteor.users.update({_id:result},{$set:{'profile':storeData['profile'],'gender':storeData['gender'],'primaryEmailId':storeData.primaryEmailId}});
     }
 });

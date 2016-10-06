@@ -83,7 +83,7 @@ TabularTables.doctors = new Tabular.Table({
       	title: "Make a Appointment",
       	render: function (val) {
 	        console.log("---------------------",val);
-	        return '<button class="btn add_appointment"> Appointment</button>'
+	        return '<button class="btn add_appointment btn-info"> Appointment</button>'
 		}
     }
     // {data: "author", title: "Author"},

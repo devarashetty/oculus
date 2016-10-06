@@ -26,7 +26,13 @@ Router.route('/forgotpassword',{
 Router.route('/verifyaccount',{
    name:'verificationAccount',
    path:'/verifyaccount',
-   template:'verificationAccount',  
+   template:'verificationAccount', 
+   onBeforeAction:function(){
+   	  var user = Meteor.users.findOne(Meteor.userId());
+   	  if(user && user.emails && user.emails[0].verified)
+   	  	Router.go('/')
+   	  	this.next();
+	} 	
 })
 
 Router.route('/verify-email/:token',function(){
@@ -45,10 +51,13 @@ Router.route('/verify-email/:token',function(){
 
 Template.verificationAccount.events({
 	'click #btn-verify':function(e,t){
+		console.log("1231233333333333333333333");
+		e.preventDefault();
 		var emailId = t.$("#emailInput").val();
+		console.log("emailId",emailId);
 		var doc = Meteor.users.findOne({},{'emails.$.address':"marsai493@gmail.com"})
 		if(doc._id){
-			Meteor.call('sendVerificationLink',function(err,res){
+			Meteor.call('sendVerificationLink',doc._id,function(err,res){
 				if(err)
 					toastr.error(err);
 				else	

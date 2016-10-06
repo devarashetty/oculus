@@ -25,7 +25,7 @@ Router.configure({
 	  		Router.go('signin');
 	  	}
       else if(userDoc && userDoc.profile.role == "doctor" && !userClass.findOne()){
-        toastr.info("Doctor user need to fill the below form")
+        // toastr.info("Doctor user need to fill the below form")
         Router.go('doctorsPage');
       }
 	   
